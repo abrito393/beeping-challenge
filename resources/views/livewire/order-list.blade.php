@@ -13,14 +13,24 @@
                 <tr>
                     <td>{{ $order->order_ref }}</td>
                     <td>{{ $order->customer_name }}</td>
-                    <td>{{ $order->products->sum('qty') }}</td>
+                    <td>{{ $order->orderLines->sum('qty') }}</td>
                     <td>
-                        @foreach ($order->products as $product)
-                            {{ $product->name }} ({{ $product->pivot->qty }}),
-                        @endforeach
+                        <ul>
+                            @foreach ($order->orderLines as $singleOrder)
+                                <li>{{ $singleOrder->product->name }} ({{ $singleOrder->qty }})</li> 
+                            @endforeach
+                        </ul>
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
+
+    <div class="order-stats">
+        <span>
+            <strong>Pedidos: {{ $lastExecuted->total_orders }} - Total: {{ $lastExecuted->total_cost }} - ({{ $lastExecuted->created_at }})</strong>
+        </span>
+
+    </div>
+
 </div>
