@@ -28,7 +28,10 @@
 
     <div class="order-stats">
         <span>
-            <strong>Pedidos: {{ $lastExecuted->total_orders }} - Total: {{ $lastExecuted->total_cost }} - ({{ $lastExecuted->created_at }})</strong>
+            @if ($lastExecuted)
+                <strong>Pedidos: {{ $lastExecuted->total_orders }} - Total: {{ $lastExecuted->total_cost }}$ - ({{ $lastExecuted->created_at }})</strong>
+            @endif
+
         </span>
 
     </div>

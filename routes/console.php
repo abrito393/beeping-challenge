@@ -8,4 +8,4 @@ use App\Console\Commands\ExecuteTotal;
 //     $this->comment(Inspiring::quote());
 // })->purpose('Display an inspiring quote')->hourly();
 
-Schedule::command(ExecuteTotal::class, [])->everyThirtySeconds();
+Schedule::command(ExecuteTotal::class, [])->everyTwoMinutes();
