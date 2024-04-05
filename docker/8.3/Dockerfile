@@ -68,4 +68,6 @@ RUN apt-get update -y \
     && chmod 644 /etc/cron.d/scheduler \
     && crontab /etc/cron.d/scheduler
 
+RUN echo "php artisan queue:work"
+
 ENTRYPOINT ["start-container"]

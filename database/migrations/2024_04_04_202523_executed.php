@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('executed', function (Blueprint $table) {
+        Schema::create('executeds', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->double('total_orders');
             $table->double('total_cost');
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('executed');
+        Schema::dropIfExists('executeds');
     }
 };
